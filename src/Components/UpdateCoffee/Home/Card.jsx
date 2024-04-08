@@ -52,7 +52,7 @@ const Card = ({ coffee }) => {
                 />
             </figure>
             <div className="flex items-center justify-between w-full">
-                <div className="flex flex-col md:flex-col-reverse items-start">
+                <div className="flex flex-col  items-start">
                     <p>Name: {name}</p>
                     <p>Chef: {chef}</p>
                     <p>Price:{price} taka</p>
@@ -61,7 +61,10 @@ const Card = ({ coffee }) => {
                     <Link className="bg-[#D2B48C] flex justify-center p-3 rounded-md text-white text-xl">
                         <FaEye />
                     </Link>
-                    <Link className="bg-[#3C393B] flex justify-center p-3 rounded-md text-white text-xl">
+                    <Link
+                        to={`/updateCoffee/${cof._id}`}
+                        className="bg-[#3C393B] flex justify-center p-3 rounded-md text-white text-xl"
+                    >
                         {" "}
                         <FaPen />
                     </Link>
