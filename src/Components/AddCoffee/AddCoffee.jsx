@@ -38,8 +38,9 @@ const AddCoffee = () => {
                         title: "Success!",
                         text: "Coffee added successful",
                         icon: "success",
-                        confirmButtonText: "Cool",
+                        confirmButtonText: "Ok",
                     });
+                    // form.reset();
                 }
             });
     };
@@ -130,6 +131,20 @@ const AddCoffee = () => {
                                 className="input input-bordered w-full"
                                 placeholder="Enter Coffee Details"
                                 name="details"
+                            />
+                        </label>
+                    </div>
+                </div>
+                <div className="md:flex gap-4">
+                    <div className="form-control md:w-1/2">
+                        <label className="label">
+                            <span className="label-text">Price</span>
+                        </label>
+                        <label className="input-group">
+                            <input
+                                className="input input-bordered w-full"
+                                placeholder="Enter Coffee Price"
+                                name="price"
                             />
                         </label>
                     </div>
