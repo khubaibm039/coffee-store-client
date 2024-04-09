@@ -4,10 +4,18 @@ import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
 import { useState } from "react";
 
-const Card = ({ coffee }) => {
-    const [cof, setCof] = useState(coffee);
-    const { price, photo, name, chef, taste, supplier, category, details } =
-        cof;
+const Card = ({ coffee, coffees, setCoffees }) => {
+    const {
+        _id,
+        price,
+        photo,
+        name,
+        chef,
+        taste,
+        supplier,
+        category,
+        details,
+    } = coffee;
 
     const handleDelete = (_id) => {
         Swal.fire({
@@ -25,18 +33,16 @@ const Card = ({ coffee }) => {
                 })
                     .then((res) => res.json())
                     .then((data) => {
-                        console.log(data);
-
                         if (data.deletedCount > 0) {
-                            // const remaining = cof.filter(
-                            //     (pro) => pro._id !== _id
-                            // );
-                            // setCof(remaining);
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
                                 icon: "success",
                             });
+                            const remaining = coffees.filter(
+                                (cof) => cof._id !== _id
+                            );
+                            setCoffees(remaining);
                         }
                     });
             }
@@ -62,14 +68,14 @@ const Card = ({ coffee }) => {
                         <FaEye />
                     </Link>
                     <Link
-                        to={`/updateCoffee/${cof._id}`}
+                        to={`/updateCoffee/${_id}`}
                         className="bg-[#3C393B] flex justify-center p-3 rounded-md text-white text-xl"
                     >
                         {" "}
                         <FaPen />
                     </Link>
                     <button
-                        onClick={() => handleDelete(cof._id)}
+                        onClick={() => handleDelete(_id)}
                         className="bg-[#EA4744] flex justify-center p-3 rounded-md text-white text-xl"
                     >
                         {" "}

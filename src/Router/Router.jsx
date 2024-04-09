@@ -3,6 +3,8 @@ import Root from "../Components/Root/Root";
 import AddCoffee from "../Components/AddCoffee/AddCoffee";
 import UpdateCoffee from "../Components/UpdateCoffee/UpdateCoffee";
 import Home from "../Components/UpdateCoffee/Home/Home";
+import Login from "../Components/Authentication/Login";
+import Register from "../Components/Authentication/Register";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -22,6 +24,14 @@ const router = createBrowserRouter([
                 element: <UpdateCoffee />,
                 loader: ({ params }) =>
                     fetch(`http://localhost:5000/coffee/${params.id}`),
+            },
+            {
+                path: "/login",
+                element: <Login />,
+            },
+            {
+                path: "/register",
+                element: <Register />,
             },
         ],
     },
